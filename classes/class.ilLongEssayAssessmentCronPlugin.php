@@ -13,9 +13,9 @@ class ilLongEssayAssessmentCronPlugin extends ilCronHookPlugin
 
     private ?array $classes = null;
 
-    public function __construct(ilDBInterface $db, ilComponentRepositoryWrite $component_repository, string $id)
+    public function __construct()
     {
-        parent::__construct($db, $component_repository, $id);
+        parent::__construct();
         $this->interface_finder = new ImplementationOfInterfaceFinder();
     }
 

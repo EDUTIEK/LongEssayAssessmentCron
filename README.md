@@ -7,5 +7,6 @@ For a detailed description of the LongEssayAssessment functionality, refer to th
 
 1. Copy the plugin to `Customizing/global/plugins/Services/Cron/CronHook/LongEssayAssessmentCron`
 2. Execute `composer du` in the ILIAS main directory.
-3. Install or update the plugin in the ILIAS plugin administration.
+3. Execute `php7.4 setup/setup.php update` in the ILIAS main directory.
+4. Install or update the plugin in the ILIAS plugin administration.
 
