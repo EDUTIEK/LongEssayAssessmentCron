@@ -13,10 +13,14 @@ class ilLongEssayAssessmentCronPlugin extends ilCronHookPlugin
 
     private ?array $classes = null;
 
+    private \ILIAS\DI\Container $dic;
+
     public function __construct(ilDBInterface $db, ilComponentRepositoryWrite $component_repository, string $id)
     {
+        global $DIC;
         parent::__construct($db, $component_repository, $id);
         $this->interface_finder = new ImplementationOfInterfaceFinder();
+        $this->dic = $DIC;
     }
 
     public function getPluginName():string
@@ -56,9 +60,9 @@ class ilLongEssayAssessmentCronPlugin extends ilCronHookPlugin
         }
 
         $xlas_plugin = ilLongEssayAssessmentPlugin::getInstance();
-        $xlas_di = \ILIAS\Plugin\LongEssayAssessment\LongEssayAssessmentDI::getInstance();
+        $xlas_dic = \ILIAS\Plugin\LongEssayAssessment\LongEssayAssessmentDI::getInstance();
 
-        return $this->objects[$class_name] = new $class_name($xlas_plugin, $xlas_di);
+        return $this->objects[$class_name] = new $class_name($xlas_plugin, $xlas_dic, $this->dic);
     }
 
 
