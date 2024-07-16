@@ -15,10 +15,10 @@ class ilLongEssayAssessmentCronPlugin extends ilCronHookPlugin
 
     private \ILIAS\DI\Container $dic;
 
-    public function __construct(ilDBInterface $db, ilComponentRepositoryWrite $component_repository, string $id)
+    public function __construct()
     {
         global $DIC;
-        parent::__construct($db, $component_repository, $id);
+        parent::__construct();
         $this->interface_finder = new ImplementationOfInterfaceFinder();
         $this->dic = $DIC;
     }
